@@ -1,32 +1,35 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : login
+    Created on : 18-lug-2016, 15.09.05
+    Author     : javamdl
+--%>
 <%@page import="model.Cliente" %>
 <%@page import="model.ClienteDAL" %>
-       <%
-    if (request.getParameter("login") != null) {
-        ClienteDAL dal = new ClienteDAL();
-        Cliente cli = dal.LoginWithCodCliente(request.getParameter("codCliente"));
-
-        out.println(request.getParameter("codCliente"));
-        out.println(cli);
-        if (cli != null) {
-            session.setAttribute("cliente", cli);
-            response.sendRedirect("index.jsp");
-        } else {
-             out.println("Login Errato");
-             session.setAttribute("clienteNonTrovato", cli);
-        }
-    }
-        %>
 
 
+<!--
+<script>
+var foo = '${somebean.someproperty}';
+doSomething(foo);
+var bar = '<%--= somepagevariable --%>';
+doSomething(bar);
+</script>
+-->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Biglietteria</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+                <!-- jQuery Version  -->
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="js/myscript.js" />
 
 
     </head>
@@ -74,23 +77,27 @@
 
             </div>
             <!-- /.row -->
-            
+
         </div>
         <!-- /.container -->    
-        
 
-            
+        <!-- The Modal -->
+        <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">×</span>
+    <span id='messageSpan' ></span>
+  </div>
+
         <footer id="footer" class="footer navbar-inverse navbar-fixed-bottom">
             <%@include file="footer.jsp" %>             
         </footer>
 
-                <!-- jQuery Version  -->
-        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="js/myscript.js" />
 
 
     </body>

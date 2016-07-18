@@ -24,9 +24,9 @@ public class ClienteDAL {
             Connection c= DriverManager.getConnection(ConnectDB.urlDB, ConnectDB.userDB, ConnectDB.pwDB);
             //Statement st=c.createStatement();
             
-            String sql="Select * from clienti where id=?";
+            String sql="Select * from clienti where COD_CLIENTE = "+codCliente ;
             PreparedStatement st=c.prepareStatement(sql);
-            st.setString(1, codCliente);
+            //st.setString(1, codCliente);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 //GregorianCalendar data=new GregorianCalendar();
