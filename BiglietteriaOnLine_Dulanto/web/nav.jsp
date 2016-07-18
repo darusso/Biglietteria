@@ -6,7 +6,7 @@
                         <a href="login.jsp">Login</a>
                     </li>
                     <li>
-                        <a href="spettacoli.jsp">Spettacoli</a>
+                        <a href="Spettacolo.jsp">Spettacoli</a>
                     </li>
                     <li>
                         <a href="prenotazione.jsp">Prenotazione Biglietto</a>

@@ -53,10 +53,12 @@
                         <div class="grid">
                             <table class="table">
     <tr>
-             <td>Prodotto</td>
-             <td>Descrizione</td>
-             <td>Prezzo</td>
-             <td>Qta &AMP; Acquista</td>               
+             <td>Cod spettacolo</td>
+             <td>Titolo</td>
+             <td>Autore</td>
+             <td>Regista </td>  
+             <td>Prezzo </td>
+             <td>Cod Teatro </td>
     </tr>
     <%
         
@@ -70,27 +72,17 @@
          %>
          <tr>
              <td><%= spettac.getCodSpettacolo() %></td>
-             <td><%= r.getString("descrizione") %></td>
-             <td><%= r.getDouble("prezzo") %></td>
+             <td><%= spettac.getTitolo() %></td>
+             <td><%= spettac.getAutore() %></td>
+             <td><%= spettac.getRegista()%></td>       
+             <td><%= spettac.getPrezzo()%></td>   
+             <td><%= spettac.getCodTeatro()%></td>   
              <td>
-                 <form method="post" action="inserisci.jsp">
-                    <input type="number" name="qt" value="1"/>
-                    <input type="hidden" name="pid"  value="<%=r.getInt(1)%>"/>             
-                    <input type="submit" name="ordina" value="buy">
-                 </form>
+
              </td>
              
          </tr>         
-         <!--
-         <tr>
-             <td><%= r.getString(2) %></td>
-             <td><%= r.getString(3) %></td>
-             <td><%= r.getDouble(4) %></td>
-             <td>
-                 <input type="number" name="qt" value="1"/>
-             </td>
-         </tr>
-         -->
+         
         <%}
        
 
