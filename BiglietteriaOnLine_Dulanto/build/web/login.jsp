@@ -14,6 +14,7 @@
             response.sendRedirect("index.jsp");
         } else {
              out.println("Login Errato");
+             
              session.setAttribute("clienteNonTrovato", cli);
         }
     }

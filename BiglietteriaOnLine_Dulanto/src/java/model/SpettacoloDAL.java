@@ -15,26 +15,27 @@ import java.util.ArrayList;
  *
  * @author javamdl
  */
-public class TeatroDAL {
-        /**
+public class SpettacoloDAL {
+    
+     /**
      * 
-     * @return lista Teatri
+     * @return lista Spettacolo
      */
-    public ArrayList<Teatro> getAllTeatro(){
+    public ArrayList<Spettacolo> getAllSpettacolo(){
         
-        ArrayList<Teatro> lista= new ArrayList<Teatro>();
+        ArrayList<Spettacolo> lista= new ArrayList<Spettacolo>();
         
         try{
             Class.forName(ConnectDB.driverDB);
             Connection c= DriverManager.getConnection(ConnectDB.urlDB, ConnectDB.userDB, ConnectDB.pwDB);
             //Statement st=c.createStatement();
             
-            String sql="Select * from teatri";
+            String sql="Select * from Spettacoli";
             PreparedStatement st=c.prepareStatement(sql);
             
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                lista.add(new Teatro(rs.getString("COD_TEATRO"),rs.getString("NOME"),rs.getString("INDIRIZZO"),rs.getString("CITTA"),rs.getString("PROVINCIA"), rs.getString("TELEFONO"), rs.getInt("POSTI") ));
+                lista.add(new Spettacolo(rs.getString("COD_SPETTACOLO"),rs.getString("TITOLO"),rs.getString("AUTORE"),rs.getString("REGISTA"),rs.getDouble("PREZZO"), rs.getString("COD_TEATRO") ));
             }
             rs=null;
             st.close();
@@ -49,6 +50,5 @@ public class TeatroDAL {
         return lista;
         
     }//getAll
-
     
 }

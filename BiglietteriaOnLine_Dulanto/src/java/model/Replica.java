@@ -13,19 +13,19 @@ import java.util.GregorianCalendar;
  */
 public class Replica {
     private String cod_Replica;
-    private String cod_Spettaoolo;
+    private String cod_Spettacolo;
     private GregorianCalendar dataReplica;
 
     public Replica() {
             this.cod_Replica = "";
-        this.cod_Spettaoolo = "";
+        this.cod_Spettacolo = "";
         this.dataReplica = new GregorianCalendar();
 
     }
 
-    public Replica(String cod_Replica, String cod_Spettaoolo, GregorianCalendar dataReplica) {
+    public Replica(String cod_Replica, String cod_Spettacolo, GregorianCalendar dataReplica) {
         this.cod_Replica = cod_Replica;
-        this.cod_Spettaoolo = cod_Spettaoolo;
+        this.cod_Spettacolo = cod_Spettacolo;
         this.dataReplica = dataReplica;
     }
 
@@ -38,11 +38,11 @@ public class Replica {
     }
 
     public String getCod_Spettaoolo() {
-        return cod_Spettaoolo;
+        return cod_Spettacolo;
     }
 
     public void setCod_Spettaoolo(String cod_Spettaoolo) {
-        this.cod_Spettaoolo = cod_Spettaoolo;
+        this.cod_Spettacolo = cod_Spettaoolo;
     }
 
     public GregorianCalendar getDataReplica() {
