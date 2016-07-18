@@ -1,4 +1,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Cliente" %>
+<%@page import="model.Clientedal" %>
+       <%
+    if (request.getParameter("login") != null) {
+        ClienteDAL dal = new ClienteDAL();
+        Cliente cli = dal.LoginWithCodCliente(request.getParameter("codCliente"));
+        out.println(request.getParameter("codCliente"));
+        out.println(cli);
+        if (cli != null) {
+            session.setAttribute("cliente", cli);
+            response.sendRedirect("index.jsp");
+        } else {
+             out.println("Login Errato");
+             
+             session.setAttribute("clienteNonTrovato", cli);
+        }
+    }
+        %>
 
 <!DOCTYPE html>
 <html>
