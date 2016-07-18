@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Cliente" %>
-<%@page import="model.Clientedal" %>
+<%@page import="model.ClienteDal" %>
        <%
     if (request.getParameter("login") != null) {
-        ClienteDAL dal = new ClienteDAL();
+        ClienteDal dal = new ClienteDal();
         Cliente cli = dal.LoginWithCodCliente(request.getParameter("codCliente"));
         out.println(request.getParameter("codCliente"));
         out.println(cli);
