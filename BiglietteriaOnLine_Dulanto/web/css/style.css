@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-lug-2016, 15.10.07
+    Author     : javamdl
+*/
+.card{
+    background-color: lightgrey;
+   
+    display: block;
+    /*margin: -20px;*/
+    padding: 5px;
+    color: black;
+    min-height: 250px;
+    height: auto;
+}
+body #corpo{
+    margin-top: 100px;
+}
