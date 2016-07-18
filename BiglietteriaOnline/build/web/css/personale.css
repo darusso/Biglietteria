@@ -1,0 +1,31 @@
+.card{
+    background-color: #ccc;
+   
+    display: block;
+    padding: 5px;
+    color: black;
+    min-height: 250px;
+    height: auto;
+}
+body #corpo
+{
+    margin-top: 100px;    
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/biblioteca.jpg', sizingMethod='scale');
+   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/biblioteca.jpg', sizingMethod='scale')";
+    width:100%;
+   height:100%;
+   position:fixed;
+   top:0px; left:0px;
+   z-index:-100;
+}
+
+h1
+{
+  text-align: center;
+  color: blueviolet;
+}
