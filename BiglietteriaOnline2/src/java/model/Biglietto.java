@@ -1,4 +1,4 @@
-package biglietteria_online;
+package model;
 
 import java.util.GregorianCalendar;
 
