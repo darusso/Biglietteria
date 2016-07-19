@@ -50,5 +50,37 @@ public class TeatroDAL {
         
     }//getAll
 
+    public Teatro getTeatroByCodTeatro(String _codTeatro){
+                Teatro teatro= null;
+        
+        try{
+            Class.forName(ConnectDB.driverDB);
+            Connection c= DriverManager.getConnection(ConnectDB.urlDB, ConnectDB.userDB, ConnectDB.pwDB);
+            //Statement st=c.createStatement();
+            
+            String sql="Select * from teatri where COD_TEATTRO = '"+_codTeatro+"'" ;
+            PreparedStatement st=c.prepareStatement(sql);
+            //st.setString(1, codCliente);
+            ResultSet rs = st.executeQuery(sql);
+            if(rs.next()){
+                teatro=new Teatro(rs.getString("COD_TEATRO"),rs.getString("NOME"),rs.getString("INDIRIZZO"),rs.getString("CITTA"),rs.getString("PROVINCIA"), rs.getString("TELEFONO"), rs.getInt("POSTI"));
+            }
+            rs=null;
+            st.close();
+            st=null;
+            c.close();
+            c=null;
+            
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return teatro;
+
+    
+    
+    }
+    
     
 }

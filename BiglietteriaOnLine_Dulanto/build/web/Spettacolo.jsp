@@ -84,7 +84,7 @@
                                     <td><%= spettac.getPrezzo()%></td>   
                                     <td><%= spettac.getCodTeatro()%></td>
                                     <td>
-                                        <select name="tipoPagamento" required>
+                                        <select name="repliche" required>
                                                 <option value="-1" selected ></option>
                                                 <%
                                             ArrayList<Replica> listarep = dalRep.getAllReplicaByCodSpettacolo(spettac.getCodSpettacolo());

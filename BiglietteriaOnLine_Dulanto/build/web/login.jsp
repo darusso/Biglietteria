@@ -11,6 +11,7 @@
         out.println(cli);
         if (cli != null) {
             session.setAttribute("cliente", cli);
+            session.setMaxInactiveInterval(60*60*2);
             response.sendRedirect("index.jsp");
         } else {
              out.println("Login Errato");

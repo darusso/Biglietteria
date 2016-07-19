@@ -61,6 +61,7 @@
                                     </tr>
                                     <%
                                         String codSpett=request.getParameter("pid");
+                                        String valueCodReplica = request.getParameter("repliche");
                                         Cliente client =(Cliente)session.getAttribute("cliente");
                                         String clienteCodice = client.getCod_Cliente();
 
@@ -73,12 +74,23 @@
 
                                     %>
                                     <tr>
-                                        <td><%= spettac.getCodSpettacolo()%></td>
-                                        <td><%= spettac.getTitolo()%></td>
+                                        <td>
+                                            <input type="hidden" value="<%= spettac.getCodSpettacolo()%>" name="codSpettacolo">
+                                            <%= spettac.getCodSpettacolo()%>
+                                        </td>
+                                        <td>
+                                            <%= spettac.getTitolo()%>
+                                        </td>
                                         <td><%= spettac.getAutore()%></td>
                                         <td><%= spettac.getRegista()%></td>       
-                                        <td><%= clienteCodice %></td>   
-                                        <td> Cod Replica   </td>
+                                        <td>
+                                            <input type="hidden" value="<%= clienteCodice %>" name="clienteCodice">
+                                            <%= clienteCodice %>
+                                        </td>   
+                                        <td> 
+                                            <input type="hidden" value="<%= valueCodReplica %>" name="codReplica">
+                                            <%= valueCodReplica  %>
+                                        </td>
                                         <td>
                                             <select name="tipoPagamento" required>
                                                 <option value="-1" selected ></option>
