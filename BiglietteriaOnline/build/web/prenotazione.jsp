@@ -89,7 +89,7 @@
                                     %>
 
                                 </table>
-                                <input type="submit" value="invio" name="invio"> 
+                                <input type="submit" value="Conferma" name="invio"> 
                             </form>    
 
 

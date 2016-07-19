@@ -65,7 +65,7 @@
                         <form action="login.jsp" method="post">
                             Codice Cliente:
                             <input name="codCliente" type="text" >
-                            <input type="submit" name="login" value="login">
+                            <input type="submit" name="Login" value="login">
 
                         </form>
 
