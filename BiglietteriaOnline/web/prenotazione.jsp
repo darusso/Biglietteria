@@ -1,10 +1,11 @@
+<%@page import="model.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Biglietteria Online</title>
+        <title>Prenotazione Biglietteria</title>
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/personale.css" rel="stylesheet">
 
@@ -38,7 +39,64 @@
 
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    
+                    <ul class="list-unstyled">
+
+                        <div class="grid">
+                            <form method="post" action="preparabiglietto.jsp">
+                                <table class="table">
+                                    <tr>
+                                        <td>Cod.Spettacolo</td>
+                                        <td>Titolo</td>
+                                        <td>Autore</td>
+                                        <td>Regista</td>  
+                                        <td>Cod.Cliente</td>
+                                        <td>Cod.Replica</td>
+                                        <td>Tipo Pagamento</td>
+                                        <td>Quantita</td>
+                                    </tr>
+                                    <%
+                                        String codSpett=request.getParameter("pid");
+                                        Cliente client =(Cliente)session.getAttribute("cliente");
+                                        String clienteCodice = client.getCod_Cliente();
+                                        SpettacoloDal dal = new SpettacoloDal();
+                                        
+                                        Spettacolo spettac=dal.getSpettacoloById(codSpett);
+                                        
+                                         {
+                                    %>
+                                    <tr>
+                                        <td><%= spettac.getCodSpettacolo()%></td>
+                                        <td><%= spettac.getTitolo()%></td>
+                                        <td><%= spettac.getAutore()%></td>
+                                        <td><%= spettac.getRegista()%></td>       
+                                        <td><%= clienteCodice %></td>   
+                                        <td>Cod.Replica</td>
+                                        <td>
+                                            <select name="tipoPagamento" required>
+                                                <option value="-1" selected ></option>
+                                                <option value="0">Carta di credito</option>
+                                                <option value="1">Bonifico</option>
+                                                
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="qt" value="1" min="0"/>
+                                        </td>
+
+                                    </tr>         
+
+                                    <%}
+                                    %>
+
+                                </table>
+                                <input type="submit" value="invio" name="invio"> 
+                            </form>    
+
+
+
+                        </div>
+                    </ul>
+
                 </div>
 
             </div>
@@ -47,10 +105,11 @@
         </div>
         <!-- /.container -->    
 
+
+
         <footer id="footer" class="footer navbar-inverse navbar-fixed-bottom">
             <%@include file="footer.jsp" %>             
         </footer>
-
 
         <!-- jQuery Version  -->
         <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   
@@ -58,6 +117,9 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="js/myscript.js" />
+
 
     </body>
+
 </html>

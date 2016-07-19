@@ -4,7 +4,8 @@ package model;
  * @author Davide Russo
  */
 
-public class Spettacolo {
+public class Spettacolo 
+{
     private String codSpettacolo;
     private String titolo;
     private String autore;
@@ -12,7 +13,8 @@ public class Spettacolo {
     private double prezzo;
     private String codTeatro;
 
-    public Spettacolo() {
+    public Spettacolo() 
+    {
         this.codSpettacolo = "";
         this.titolo = "";
         this.autore = "";
@@ -22,7 +24,8 @@ public class Spettacolo {
 
     }
 
-    public Spettacolo(String codSpettacolo, String titolo, String autore, String regista, double prezzo, String codTeatro) {
+    public Spettacolo(String codSpettacolo, String titolo, String autore, String regista, double prezzo, String codTeatro) 
+    {
         this.codSpettacolo = codSpettacolo;
         this.titolo = titolo;
         this.autore = autore;
@@ -46,7 +49,8 @@ public class Spettacolo {
         return titolo;
     }
 
-    public void setTitolo(String titolo) {
+    public void setTitolo(String titolo) 
+    {
         this.titolo = titolo;
     }
 

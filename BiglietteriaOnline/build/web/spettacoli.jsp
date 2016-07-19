@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.SpettacoloDal"%>
-<%@page import="model.Spettacolo"%>
+<%@page import="model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <header>
+               <header>
             <div id="header">
                 <%@include file="header.jsp" %>               
             </div>
@@ -43,49 +43,66 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <ul class="list-unstyled">
-                            
-                         <div class="grid">
-                            <table class="table"> 
-    <tr>
-    
-        <td><h2>Cod. spettacolo</h2></td>
-        <td><h2>Titolo</h2></td>
-        <td><h2>Autore</h2></td>
-        <td><h2>Regista</h2></td>  
-        <td><h2>Prezzo</h2></td>
-        <td><h2>Cod. Teatro</h2></td>
-    </tr>
-    <%
-        
-      
-            SpettacoloDal dal=new SpettacoloDal();
-            ArrayList<Spettacolo> listaSpett =dal.getAllSpettacolo();
-            
-            
-            for(Spettacolo spettac : listaSpett){
-                
-         %>
-         <tr>
-             <td><%= spettac.getCodSpettacolo() %></td>
-             <td><%= spettac.getTitolo() %></td>
-             <td><%= spettac.getAutore() %></td>
-             <td><%= spettac.getRegista()%></td>       
-             <td><%= spettac.getPrezzo()%></td>   
-             <td><%= spettac.getCodTeatro()%></td>   
-             <td>
 
-             </td>
-             
-         </tr>         
-         
-        <%}
-       
-        %>
-    
-</table>
+                        <div class="grid">
+                            <table class="table">
+                                <tr>
+                                    <td><h2>Cod.Spettacolo</h2></td>
+                                    <td><h2>Titolo</h2></td>
+                                    <td><h2>Autore</h2></td>
+                                    <td><h2>Regista</h2></td>  
+                                    <td><h2>Prezzo</h2></td>
+                                    <td><h2>Cod.Teatro</h2> </td>
+                                    <td><h2>Replica</h2></td>
+                                    <td><h2>Prenota</h2></td>
 
-                            
-                            
+                                </tr>
+                                <%
+                                    SpettacoloDal dal = new SpettacoloDal();
+                                    ArrayList<Spettacolo> listaSpett = dal.getAllSpettacolo();
+                                    ReplicaDal dalRep = new ReplicaDal();
+                                    
+                                    for (Spettacolo spettac : listaSpett) {
+                                %>
+                                <tr>
+                                <form method="post" action="prenotazione.jsp">  
+                                    <td><%= spettac.getCodSpettacolo()%></td>
+                                    <td><%= spettac.getTitolo()%></td>
+                                    <td><%= spettac.getAutore()%></td>
+                                    <td><%= spettac.getRegista()%></td>       
+                                    <td><%= spettac.getPrezzo()%></td>   
+                                    <td><%= spettac.getCodTeatro()%></td>
+                                    <td>
+                                        <select name="tipoPagamento" required>
+                                                <option value="-1" selected ></option>
+                                                <%
+                                            ArrayList<Replica> listarep = dalRep.getAllReplicaByCodSpettacolo(spettac.getCodSpettacolo());
+                                            
+                                            for(Replica rep : listarep)
+                                            {
+                                        %>
+                                        <option value="<%= rep.getCod_Replica() %>"><%= rep.getGiornoReplica() %></option>
+                                                
+                                                <%}%>
+                                            </select>
+                                        
+                                    </td>
+                                    <td>
+
+                                        <input type="hidden" name="pid"  value="<%=spettac.getCodSpettacolo()%>"/>             
+                                        <input type="submit" name="prenota" value="Prenota">
+
+                                    </td>
+                                </form>
+                                </tr>         
+
+                                <%}
+                                %>
+
+                            </table>
+
+
+
                         </div>
                     </ul>
 
@@ -93,17 +110,17 @@
 
             </div>
             <!-- /.row -->
-            
+
         </div>
         <!-- /.container -->    
-        
 
-            
+
+
         <footer id="footer" class="footer navbar-inverse navbar-fixed-bottom">
             <%@include file="footer.jsp" %>             
         </footer>
 
-                <!-- jQuery Version  -->
+        <!-- jQuery Version  -->
         <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 

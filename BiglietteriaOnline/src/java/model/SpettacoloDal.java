@@ -49,5 +49,38 @@ public class SpettacoloDal
         return lista;
         
     }
+     
+    public  Spettacolo getSpettacoloById(String _codSpettacolo)
+    {
+        
+        Spettacolo spett= null;
+        
+        try{
+            Class.forName(Connectdb.driverDB);
+            Connection c= DriverManager.getConnection(Connectdb.urlDB, Connectdb.userDB, Connectdb.pwDB);
+            
+            
+            String sql="Select * from spettacoli where COD_SPETTACOLO = '"+_codSpettacolo+"'" ;
+            PreparedStatement st=c.prepareStatement(sql);
+            
+            ResultSet rs = st.executeQuery(sql);
+            if(rs.next())
+            {                
+                spett=new Spettacolo(rs.getString("COD_SPETTACOLO"),rs.getString("TITOLO"),rs.getString("AUTORE"),rs.getString("REGISTA"),rs.getDouble("PREZZO"), rs.getString("COD_TEATRO"));
+            }
+            rs=null;
+            st.close();
+            st=null;
+            c.close();
+            c=null;
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }        
+        return spett;
+        
+    }
     
 }
