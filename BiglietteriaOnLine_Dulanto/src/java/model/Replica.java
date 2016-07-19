@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 /**
@@ -12,12 +13,13 @@ import java.util.GregorianCalendar;
  * @author javamdl
  */
 public class Replica {
+
     private String cod_Replica;
     private String cod_Spettacolo;
     private GregorianCalendar dataReplica;
 
     public Replica() {
-            this.cod_Replica = "";
+        this.cod_Replica = "";
         this.cod_Spettacolo = "";
         this.dataReplica = new GregorianCalendar();
 
@@ -27,6 +29,14 @@ public class Replica {
         this.cod_Replica = cod_Replica;
         this.cod_Spettacolo = cod_Spettacolo;
         this.dataReplica = dataReplica;
+    }
+
+    public String getGiornoReplica() {
+        SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
+        fmt.setCalendar(dataReplica);
+        String dateFormatted = fmt.format(dataReplica.getTime());
+        return dateFormatted;
+
     }
 
     public String getCod_Replica() {
@@ -52,9 +62,5 @@ public class Replica {
     public void setDataReplica(GregorianCalendar dataReplica) {
         this.dataReplica = dataReplica;
     }
-    
-    
-    
-    
-    
+
 }

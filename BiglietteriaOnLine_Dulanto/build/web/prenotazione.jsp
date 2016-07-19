@@ -61,6 +61,8 @@
                                     </tr>
                                     <%
                                         String codSpett=request.getParameter("pid");
+                                        Cliente client =(Cliente)session.getAttribute("cliente");
+                                        String clienteCodice = client.getCod_Cliente();
 
                                         SpettacoloDAL dal = new SpettacoloDAL();
                                         //ArrayList<Spettacolo> listaSpett = dal.getAllSpettacolo();
@@ -75,7 +77,7 @@
                                         <td><%= spettac.getTitolo()%></td>
                                         <td><%= spettac.getAutore()%></td>
                                         <td><%= spettac.getRegista()%></td>       
-                                        <td>Cod Clliente</td>   
+                                        <td><%= clienteCodice %></td>   
                                         <td> Cod Replica   </td>
                                         <td>
                                             <select name="tipoPagamento" required>

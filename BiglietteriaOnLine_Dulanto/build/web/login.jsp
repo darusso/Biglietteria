@@ -15,7 +15,7 @@
         } else {
              out.println("Login Errato");
              
-             session.setAttribute("clienteNonTrovato", cli);
+             session.setAttribute("clienteNonTrovato", -1);
         }
     }
         %>
