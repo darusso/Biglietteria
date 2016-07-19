@@ -1,32 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Cliente" %>
-<%@page import="model.ClienteDal" %>
-       
-  <%
-    if (request.getParameter("login") != null) 
-    {
-        ClienteDal dal = new ClienteDal();
-        Cliente cli = dal.LoginWithCodCliente(request.getParameter("codCliente"));
-        out.println(request.getParameter("codCliente"));
-        out.println(cli);
-        if (cli != null) 
-        {
-            session.setAttribute("cliente", cli);
-            response.sendRedirect("homelogin.jsp");
-        } 
-        else 
-        {
-            out.println("Login Errato");             
-             session.setAttribute("clienteNonTrovato", cli);
-        }
-    }
-   %>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Biglietteria</title>
+        <title>Biglietteria Online</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/personale.css" rel="stylesheet">
 
@@ -60,17 +38,7 @@
 
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <ul class="list-unstyled">
-                        
-                        <form action="login.jsp" method="post">
-                            Codice Cliente:
-                            <input name="codCliente" type="text" >
-                            <input type="submit" name="login" value="login">
-
-                        </form>
-
-                    </ul>
-
+                    <h1> Benvenuto nella tua sezione riservata </h1> 
                 </div>
 
             </div>

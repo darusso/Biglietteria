@@ -1,8 +1,4 @@
 package model;
-/**
- *
- * @ Davide Russo
- */
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,30 +6,34 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
-public class TeatroDal 
+/**
+ *
+ * @author Davide Russo
+ */
+public class SpettacoloDal
 {
-      /**     
-     * @return lista Teatri
+    
+     /**
+     * 
+     * @return lista Spettacolo
      */
     
-    public ArrayList<Teatro> getAll()
+    public ArrayList<Spettacolo> getAllSpettacolo()
     {
         
-        ArrayList<Teatro> lista= new ArrayList<Teatro>();
+        ArrayList<Spettacolo> lista= new ArrayList<>();
         
-        try
-        {
+        try{
             Class.forName(Connectdb.driverDB);
             Connection c= DriverManager.getConnection(Connectdb.urlDB, Connectdb.userDB, Connectdb.pwDB);
             
             
-            String sql="Select * from teatri";
+            String sql="Select * from Spettacoli";
             PreparedStatement st=c.prepareStatement(sql);
             
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                lista.add(new Teatro(rs.getString("COD_TEATRO"),rs.getString("NOME"),rs.getString("INDIRIZZO"),rs.getString("CITTA"),rs.getString("PROVINCIA"), rs.getString("TELEFONO"), rs.getInt("POSTI") ));
+                lista.add(new Spettacolo(rs.getString("COD_SPETTACOLO"),rs.getString("TITOLO"),rs.getString("AUTORE"),rs.getString("REGISTA"),rs.getDouble("PREZZO"), rs.getString("COD_TEATRO") ));
             }
             rs=null;
             st.close();

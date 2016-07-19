@@ -1,12 +1,3 @@
-.card{
-    background-color: #ccc;
-   
-    display: block;
-    padding: 5px;
-    color: black;
-    min-height: 250px;
-    height: auto;
-}
 body #corpo
 {
     margin-top: 100px;    
@@ -24,8 +15,13 @@ body #corpo
    z-index:-100;
 }
 
-h1
+h1,h2
 {
   text-align: center;
   color: blueviolet;
+}
+ table
+{
+    text-align: center;
+    background-color: whitesmoke;
 }

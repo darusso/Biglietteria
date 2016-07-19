@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author javamdl
+ * @author Davide Russo
  */
 public class Biglietto 
 {

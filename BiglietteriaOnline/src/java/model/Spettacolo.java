@@ -13,7 +13,7 @@ public class Spettacolo {
     private String codTeatro;
 
     public Spettacolo() {
-                this.codSpettacolo = "";
+        this.codSpettacolo = "";
         this.titolo = "";
         this.autore = "";
         this.regista = "";
@@ -31,15 +31,18 @@ public class Spettacolo {
         this.codTeatro = codTeatro;
     }
 
-    public String getCodSpettacolo() {
+    public String getCodSpettacolo() 
+    {
         return codSpettacolo;
     }
 
-    public void setCodSpettacolo(String codSpettacolo) {
+    public void setCodSpettacolo(String codSpettacolo) 
+    {
         this.codSpettacolo = codSpettacolo;
     }
 
-    public String getTitolo() {
+    public String getTitolo() 
+    {
         return titolo;
     }
 
@@ -47,38 +50,46 @@ public class Spettacolo {
         this.titolo = titolo;
     }
 
-    public String getAutore() {
+    public String getAutore() 
+    {
         return autore;
     }
 
-    public void setAutore(String autore) {
+    public void setAutore(String autore) 
+    {
         this.autore = autore;
     }
 
-    public String getRegista() {
+    public String getRegista() 
+    {
         return regista;
     }
 
-    public void setRegista(String regista) {
+    public void setRegista(String regista) 
+    {
         this.regista = regista;
     }
 
-    public double getPrezzo() {
+    public double getPrezzo() 
+    {
         return prezzo;
     }
 
-    public void setPrezzo(double prezzo) {
+    public void setPrezzo(double prezzo) 
+    {
         this.prezzo = prezzo;
     }
 
-    public String getCodTeatro() {
+    public String getCodTeatro() 
+    {
         return codTeatro;
     }
 
-    public void setCodTeatro(String codTeatro) {
+    public void setCodTeatro(String codTeatro) 
+    {
         this.codTeatro = codTeatro;
     }
-    
+   
     
 
 }

@@ -1,22 +1,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Cliente" %>
 <%@page import="model.ClienteDal" %>
-       <%
-    if (request.getParameter("login") != null) {
+       
+  <%
+    if (request.getParameter("login") != null) 
+    {
         ClienteDal dal = new ClienteDal();
         Cliente cli = dal.LoginWithCodCliente(request.getParameter("codCliente"));
         out.println(request.getParameter("codCliente"));
         out.println(cli);
-        if (cli != null) {
+        if (cli != null) 
+        {
             session.setAttribute("cliente", cli);
-            response.sendRedirect("index.jsp");
-        } else {
-             out.println("Login Errato");
-             
+            response.sendRedirect("homelogin.jsp");
+        } 
+        else 
+        {
+            out.println("Login Errato");             
              session.setAttribute("clienteNonTrovato", cli);
         }
     }
-        %>
+   %>
 
 <!DOCTYPE html>
 <html>
@@ -60,7 +64,7 @@
                         
                         <form action="login.jsp" method="post">
                             Codice Cliente:
-                            <input name="email" type="text" >
+                            <input name="codCliente" type="text" >
                             <input type="submit" name="login" value="login">
 
                         </form>

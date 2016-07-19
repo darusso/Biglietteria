@@ -29,7 +29,7 @@ public class Teatro
     {
         this.codTeatro = codTeatro;
         this.nome = nome;
-        this.indirizzo = this.indirizzo;
+        this.indirizzo = indirizzo;
         this.citta = citta;
         this.provincia = provincia;
         this.telefono = telefono;
