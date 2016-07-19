@@ -59,6 +59,7 @@
              <td>Regista </td>  
              <td>Prezzo </td>
              <td>Cod Teatro </td>
+             <td>Prenota</td>
     </tr>
     <%
         
@@ -78,7 +79,10 @@
              <td><%= spettac.getPrezzo()%></td>   
              <td><%= spettac.getCodTeatro()%></td>   
              <td>
-
+                 <form method="post" action="prenotazione.jsp">                   
+                    <input type="hidden" name="pid"  value="<%=spettac.getCodSpettacolo()%>"/>             
+                    <input type="submit" name="prenota" value="prenota">
+                 </form>
              </td>
              
          </tr>         

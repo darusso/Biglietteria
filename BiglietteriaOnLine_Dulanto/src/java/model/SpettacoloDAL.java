@@ -30,7 +30,7 @@ public class SpettacoloDAL {
             Connection c= DriverManager.getConnection(ConnectDB.urlDB, ConnectDB.userDB, ConnectDB.pwDB);
             //Statement st=c.createStatement();
             
-            String sql="Select * from Spettacoli";
+            String sql="Select * from spettacoli";
             PreparedStatement st=c.prepareStatement(sql);
             
             ResultSet rs = st.executeQuery(sql);
@@ -51,4 +51,36 @@ public class SpettacoloDAL {
         
     }//getAll
     
+         public  Spettacolo getSpettacoloById(String _codSpettacolo){
+        
+        Spettacolo spett= null;
+        
+        try{
+            Class.forName(ConnectDB.driverDB);
+            Connection c= DriverManager.getConnection(ConnectDB.urlDB, ConnectDB.userDB, ConnectDB.pwDB);
+            //Statement st=c.createStatement();
+            
+            String sql="Select * from spettacoli where COD_SPETTACOLO = '"+_codSpettacolo+"'" ;
+            PreparedStatement st=c.prepareStatement(sql);
+            //st.setString(1, codCliente);
+            ResultSet rs = st.executeQuery(sql);
+            if(rs.next()){
+                //GregorianCalendar data=new GregorianCalendar();
+                //data.setTime(rs.getDate("data"));
+                spett=new Spettacolo(rs.getString("COD_SPETTACOLO"),rs.getString("TITOLO"),rs.getString("AUTORE"),rs.getString("REGISTA"),rs.getDouble("PREZZO"), rs.getString("COD_TEATRO"));
+            }
+            rs=null;
+            st.close();
+            st=null;
+            c.close();
+            c=null;
+            
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return spett;
+        
+    }//getByID
 }
