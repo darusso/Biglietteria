@@ -58,7 +58,7 @@ public class TeatroDAL {
             Connection c= DriverManager.getConnection(ConnectDB.urlDB, ConnectDB.userDB, ConnectDB.pwDB);
             //Statement st=c.createStatement();
             
-            String sql="Select * from teatri where COD_TEATTRO = '"+_codTeatro+"'" ;
+            String sql="Select * from teatri where COD_TEATRO = '"+_codTeatro+"'" ;
             PreparedStatement st=c.prepareStatement(sql);
             //st.setString(1, codCliente);
             ResultSet rs = st.executeQuery(sql);

@@ -4,11 +4,10 @@
     Author     : javamdl
 --%>
 
-<%@page import="model.Replica"%>
-<%@page import="model.ReplicaDAL"%>
+
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.SpettacoloDAL"%>
-<%@page import="model.Spettacolo"%>
+
+<%@page import="model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -55,13 +54,15 @@
                         <div class="grid">
                             <table class="table">
                                 <tr>
-                                    <td>Cod spettacolo</td>
+                                    <td>Teatro </td>                                   
                                     <td>Titolo</td>
                                     <td>Autore</td>
                                     <td>Regista </td>  
                                     <td>Prezzo </td>
-                                    <td>Cod Teatro </td>
+                                    
                                     <td>Replica</td>
+                                   
+                                    
                                     <td>Prenota</td>
 
                                 </tr>
@@ -70,19 +71,26 @@
                                     SpettacoloDAL dal = new SpettacoloDAL();
                                     ArrayList<Spettacolo> listaSpett = dal.getAllSpettacolo();
                                     ReplicaDAL dalRep = new ReplicaDAL();
-                                    //
+                                    
 
                                     for (Spettacolo spettac : listaSpett) {
 
                                 %>
                                 <tr>
-                                <form method="post" action="prenotazione.jsp">  
-                                    <td><%= spettac.getCodSpettacolo()%></td>
+                                <form method="post" action="prenotazione.jsp">
+                                    <td>
+                                        <%
+                                        TeatroDAL dalTeatro=new TeatroDAL();
+                                        Teatro teatro=dalTeatro.getTeatroByCodTeatro(spettac.getCodTeatro());
+                                        %> 
+                                        <input type="hidden" value="<%= spettac.getCodTeatro()%>" name="codTeatro">
+                                        <%= teatro.getNome() %>
+                                    </td>                                    
                                     <td><%= spettac.getTitolo()%></td>
                                     <td><%= spettac.getAutore()%></td>
                                     <td><%= spettac.getRegista()%></td>       
                                     <td><%= spettac.getPrezzo()%></td>   
-                                    <td><%= spettac.getCodTeatro()%></td>
+                                    
                                     <td>
                                         <select name="repliche" required>
                                                 <option value="-1" selected ></option>

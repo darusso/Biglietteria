@@ -43,14 +43,15 @@
     String TipoPagamento = request.getParameter("tipoPagamento").equals("0") ? "Carta di Credito" : "Bonifico";
     int quantita = Integer.parseInt(request.getParameter("qt"));
     
-    String codTeatro ="T001";
-    
+    String codTeatro ="T001";    
     TeatroDAL dalTeatro=new TeatroDAL();
     Teatro teatro=dalTeatro.getTeatroByCodTeatro(codTeatro);
     
+    if(teatro.getPosti()>=quantita){
     BigliettoDAL dal=new BigliettoDAL();
     dal.PrenotaBiglietto(codClient, codReplica, TipoPagamento, quantita);
-
+    }
+    
 
 %>
 
